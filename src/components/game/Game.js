@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Team from "../../components/team/Team";
-import ScoreBoard from "../scoreboard/ScoreBoard";
+import ScoreBoard from "../../components/scoreboard/ScoreBoard";
 import shotSound1 from "../../assets/audio/smb_fireball.wav";
 import scoreSound1 from "../../assets/audio/smb_1-up.wav";
 class Game extends React.Component {
