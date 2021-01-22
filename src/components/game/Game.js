@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Team from "../../components/team/Team";
 import ScoreBoard from "../../components/scoreboard/ScoreBoard";
-import shotSound1 from "../../assets/audio/smb_fireball.wav";
-import scoreSound1 from "../../assets/audio/smb_1-up.wav";
-class Game extends React.Component {
+import shotSound1 from "../../assets/audio/arrow.mp3";
+import scoreSound1 from "../../assets/audio/arrow-wall.mp3";
+import winSound1 from "../../assets/audio/win.wav";
+import logoSrc5 from "../../assets/images/goron.png";
+class Game extends Component {
   constructor(props) {
     super(props);
 
@@ -21,6 +23,7 @@ class Game extends React.Component {
 
     this.shotSound = new Audio(shotSound1);
     this.scoreSound = new Audio(scoreSound1);
+    this.winSound = new Audio(winSound1);
   }
 
   shoot = (team) => {
@@ -56,6 +59,18 @@ class Game extends React.Component {
         score: 0,
       },
     }));
+    if (this.state.visitingTeamStats.score > this.state.homeTeamStats.score) {
+      alert("Team One Wins!");
+      this.winSound.play();
+    } else if (
+      this.state.homeTeamStats.score > this.state.visitingTeamStats.score
+    ) {
+      alert("Team Two Wins!");
+      this.winSound.play();
+    } else {
+      alert("It's a Tie!");
+      this.winSound.play();
+    }
   };
 
   render() {
@@ -76,7 +91,12 @@ class Game extends React.Component {
           />
 
           <div className="versus">
-            <h1>VS</h1>
+            <span>
+              <img height="160px" src={logoSrc5} alt="goron holding a target" />
+              <img height="160px" src={logoSrc5} alt="goron holding a target" />
+              <img height="160px" src={logoSrc5} alt="goron holding a target" />
+            </span>
+
             <div>
               <strong>Resets:</strong> {this.state.resetCount}
               <button onClick={this.resetGame}>Reset Game</button>

@@ -1,39 +1,45 @@
 import "./App.css";
 import Game from "./components/game/Game";
-import logoSrc1 from "./assets/images/raccoon.png";
-import logoSrc2 from "./assets/images/squirrel.png";
-import logoSrc3 from "./assets/images/bunny.png";
-import logoSrc4 from "./assets/images/hound.png";
+import BgMusic from "./components/bgMusic/BgMusic";
+import logoSrc1 from "./assets/images/linkwithbow.jpg";
+import logoSrc2 from "./assets/images/linkwithcrossbow.jpg";
+import logoSrc3 from "./assets/images/revaliwithbow.jfif";
+import logoSrc4 from "./assets/images/hyrulianarcher.jpg";
 
 function App(props) {
-  const raccoons = {
-    name: "Russiaville Raccoons",
+  const blueTeam = {
+    name: "Blue Tunic Link",
     logoSrc: logoSrc1,
   };
 
-  const squirrels = {
-    name: "Sheridan Squirrels",
+  const greenTeam = {
+    name: "Green Tunic Link",
     logoSrc: logoSrc2,
   };
 
-  const bunnies = {
-    name: "Burlington Bunnies",
+  const revaliArchers = {
+    name: "Revali Archer",
     logoSrc: logoSrc3,
   };
 
-  const hounds = {
-    name: "Hammond Hounds",
+  const hyrulianArchers = {
+    name: "Hyrulian Archer",
     logoSrc: logoSrc4,
   };
 
   return (
     <div className="App">
+      <BgMusic />
       <Game
-        venue="Union 525 Gem"
-        homeTeam={squirrels}
-        visitingTeam={raccoons}
+        venue="Link's Archery Challenge"
+        homeTeam={greenTeam}
+        visitingTeam={blueTeam}
       />
-      <Game venue="Sheridan Arena" homeTeam={bunnies} visitingTeam={hounds} />
+      <Game
+        venue="Hyrulian Warriors Arena"
+        homeTeam={revaliArchers}
+        visitingTeam={hyrulianArchers}
+      />
     </div>
   );
 }
